@@ -1,6 +1,10 @@
 import React from "react";
 import "./App.css";
 
+import SearchBar from "../SearchBar/SearchBar.js";
+import SearchResults from "../SearchResults/SearchResults.js";
+import Playlist from "../Playlist/Playlist.js";
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,10 +20,17 @@ export default class App extends React.Component {
     return (
       <div>
         <h1>
-          Ja<span class="highlight">mmm</span>ing
+          Ja<span className="highlight">mmm</span>ing
         </h1>
-        <div class="App">
-          <div class="App-playlist" />
+        <div className="App">
+          // Add a SearchBar component --
+          <SearchBar />
+          <div className="App-playlist">
+            // Add a SearchResults component --
+            <SearchResults searchResults={this.state.searchResults} />
+            // Add a Playlist component --
+            <Playlist />
+          </div>
         </div>
       </div>
     );
