@@ -6,6 +6,7 @@ export class SearchResults extends React.Component {
     return (
       <div className="SearchResults">
         <h2>Results</h2>
+        // this.state.searchResults
         <add_track_list_component />
       </div>
     );
