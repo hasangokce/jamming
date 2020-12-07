@@ -13,6 +13,10 @@ export default class App extends React.Component {
         { name: "name1", artist: "artist1", album: "album1", id: "1" },
         { name: "name2", artist: "artist2", album: "album2", id: "2" },
         { name: "name3", artist: "artist3", album: "album3", id: "3" }
+      ],
+      playlistName: "Dance",
+      playlistTracks: [
+        { name: "Track11", artist: "artist11", album: "album11", id: "11" }
       ]
     };
   }
@@ -23,13 +27,13 @@ export default class App extends React.Component {
           Ja<span className="highlight">mmm</span>ing
         </h1>
         <div className="App">
-          /* Add a SearchBar component */
           <SearchBar />
           <div className="App-playlist">
-            // Add a SearchResults component --
             <SearchResults searchResults={this.state.searchResults} />
-            // Add a Playlist component --
-            <Playlist />
+            <Playlist
+              playlistName={this.state.playlistName}
+              playlistTracks={this.state.playlistTracks}
+            />
           </div>
         </div>
       </div>
