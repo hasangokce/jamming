@@ -2,24 +2,44 @@ import React from "react";
 import "./Track.css";
 
 export default class Track extends React.Component {
-  renderAction() {
-    if (isRemoval) {
-      // Button +
-    } else {
-      // button shows -
-    }
+  constructor(props) {
+    super(props);
+    this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
+  }
 
-    // Set the class name to Track-action. ???
+  renderAction() {
+    if (this.props.isRemoval) {
+      return (
+        <button className="Track-action" onClick={this.removeTrack}>
+          -
+        </button>
+      );
+    } else {
+      return (
+        <button className="Track-action" onClick={this.addTrack}>
+          +
+        </button>
+      );
+    }
+  }
+
+  addTrack() {
+    this.props.onAdd(this.props.track);
+  }
+
+  removeTrack() {
+    this.props.onRemove(this.props.track);
   }
 
   render() {
     return (
       <div className="Track">
         <div className="Track-information">
-          <h3 contenteditable="true">{this.props.track.name}</h3>
-          <p contenteditable="true">{this.props.track.artist}</p>
+          <h3 contentEditable="true">{this.props.track.name}</h3>
+          <p contentEditable="true">{this.props.track.artist}</p>
         </div>
-        <button className="Track-action">+</button>
+        {this.renderAction()}
       </div>
     );
   }
